@@ -1,0 +1,128 @@
+{
+  "revision": "35ebb31405e9da028409199a494f2e77eb10f253",
+  "partition_sha256": "fc955bcb3ef8fbdf7d5640d9a8693a8431b5f2ee291a5c1449a1549e7e073fe7",
+  "selection_seed": 2026101701,
+  "image_ids": [
+    187000,
+    183258,
+    200793,
+    189467,
+    193037
+  ],
+  "cases": [
+    {
+      "image_id": 187000,
+      "filename": "187000.jpg",
+      "key": "image_187000",
+      "namespace": "original CelebA aligned image filename (not HQ index)",
+      "official_partition": 2,
+      "original_path": "data/celeba128_ads_v1/image_187000/187000.jpg",
+      "truth_path": "data/celeba128_ads_v1/image_187000/truth.npy",
+      "original_sha256": "637f65e82cba81a9c8773827f0356cf68f0902c04a939fb4390d3bfbfd0fefcc",
+      "truth_sha256": "00e664bfca4dafb039c1de4ee15082f9ece9e71b9525330715ce26b4de3c9071",
+      "archive": {
+        "archive_member": "img_align_celeba/187000.jpg",
+        "central_directory_offset": 1441790340,
+        "local_header_offset": 1312055372,
+        "image_data_offset": 1312055429,
+        "compressed_bytes": 7530,
+        "crc32": "e025da19",
+        "sha256": "637f65e82cba81a9c8773827f0356cf68f0902c04a939fb4390d3bfbfd0fefcc",
+        "original_source_url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/img_align_celeba.zip"
+      }
+    },
+    {
+      "image_id": 183258,
+      "filename": "183258.jpg",
+      "key": "image_183258",
+      "namespace": "original CelebA aligned image filename (not HQ index)",
+      "official_partition": 2,
+      "original_path": "data/celeba128_ads_v1/image_183258/183258.jpg",
+      "truth_path": "data/celeba128_ads_v1/image_183258/truth.npy",
+      "original_sha256": "95156c1ec2e4227267239cd9f4860580a7daafc9f9e8638b447e746f206c58b5",
+      "truth_sha256": "975a00e334b709505b8c350dc7c433156133c21326675ebb4003bfc1893ea0e3",
+      "archive": {
+        "archive_member": "img_align_celeba/183258.jpg",
+        "central_directory_offset": 1441382462,
+        "local_header_offset": 1285825568,
+        "image_data_offset": 1285825625,
+        "compressed_bytes": 6346,
+        "crc32": "8f2c7207",
+        "sha256": "95156c1ec2e4227267239cd9f4860580a7daafc9f9e8638b447e746f206c58b5",
+        "original_source_url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/img_align_celeba.zip"
+      }
+    },
+    {
+      "image_id": 200793,
+      "filename": "200793.jpg",
+      "key": "image_200793",
+      "namespace": "original CelebA aligned image filename (not HQ index)",
+      "official_partition": 2,
+      "original_path": "data/celeba128_ads_v1/image_200793/200793.jpg",
+      "truth_path": "data/celeba128_ads_v1/image_200793/truth.npy",
+      "original_sha256": "4d51310a7cc3b4e791ecf20ab5a2a92a6dd0a1d9a2623843bf66263828d11b2f",
+      "truth_sha256": "76936f96cc59614e6d5d51fedc71f32bf4526116d3d21835b2e1a095092b3117",
+      "archive": {
+        "archive_member": "img_align_celeba/200793.jpg",
+        "central_directory_offset": 1443293777,
+        "local_header_offset": 1408756667,
+        "image_data_offset": 1408756724,
+        "compressed_bytes": 6654,
+        "crc32": "14b0f9cb",
+        "sha256": "4d51310a7cc3b4e791ecf20ab5a2a92a6dd0a1d9a2623843bf66263828d11b2f",
+        "original_source_url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/img_align_celeba.zip"
+      }
+    },
+    {
+      "image_id": 189467,
+      "filename": "189467.jpg",
+      "key": "image_189467",
+      "namespace": "original CelebA aligned image filename (not HQ index)",
+      "official_partition": 2,
+      "original_path": "data/celeba128_ads_v1/image_189467/189467.jpg",
+      "truth_path": "data/celeba128_ads_v1/image_189467/truth.npy",
+      "original_sha256": "891b4155e35c1b483cbe17c9273e58273ba4b46a38ff243ca7b08d6f6c56f1cc",
+      "truth_sha256": "7e8d6163bc3d16f1c55bf4ca9f98ae09db4e350d037808a295253d81ac15e594",
+      "archive": {
+        "archive_member": "img_align_celeba/189467.jpg",
+        "central_directory_offset": 1442059243,
+        "local_header_offset": 1329383977,
+        "image_data_offset": 1329384034,
+        "compressed_bytes": 5912,
+        "crc32": "a0567c46",
+        "sha256": "891b4155e35c1b483cbe17c9273e58273ba4b46a38ff243ca7b08d6f6c56f1cc",
+        "original_source_url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/img_align_celeba.zip"
+      }
+    },
+    {
+      "image_id": 193037,
+      "filename": "193037.jpg",
+      "key": "image_193037",
+      "namespace": "original CelebA aligned image filename (not HQ index)",
+      "official_partition": 2,
+      "original_path": "data/celeba128_ads_v1/image_193037/193037.jpg",
+      "truth_path": "data/celeba128_ads_v1/image_193037/truth.npy",
+      "original_sha256": "d5e7a2b5b0c566a3380a4cbf417d35c8d226db16a9dc01ba78a75c6c894870f3",
+      "truth_sha256": "fb024ddd10a8e1e23550f97a90ee84d6d489175ef61b50f92a25d619b0305470",
+      "archive": {
+        "archive_member": "img_align_celeba/193037.jpg",
+        "central_directory_offset": 1442448373,
+        "local_header_offset": 1354309934,
+        "image_data_offset": 1354309991,
+        "compressed_bytes": 8754,
+        "crc32": "3ef82d3d",
+        "sha256": "d5e7a2b5b0c566a3380a4cbf417d35c8d226db16a9dc01ba78a75c6c894870f3",
+        "original_source_url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/img_align_celeba.zip"
+      }
+    }
+  ],
+  "preprocessing": "Original aligned178x218 RGB ->center crop box(0,20,178,198),178x178 ->Pillow BILINEAR128x128 ->uint8 CHW converted to float32 /127.5 -1.",
+  "crop_xyxy": [
+    0,
+    20,
+    178,
+    198
+  ],
+  "pillow_version": "11.1.0",
+  "numpy_version": "2.2.3"
+}

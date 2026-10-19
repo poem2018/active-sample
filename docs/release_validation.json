@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-19",
+  "cpu_tests": {
+    "passed": 34,
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=2 python -m pytest -q"
+  },
+  "numerical_preflight": {
+    "status": "passed",
+    "measurement_plus_proximity_gradient_max_error": 0.0,
+    "measurement_only_original_sampler_max_error": 0.0,
+    "rng_states_equal": true,
+    "mse_replay_error": 0.0,
+    "geometry_unique": true,
+    "whole_score_temperature_validated": true,
+    "acquisition_variance_validated": true,
+    "old_50_study_still_paused": false,
+    "note": "CPU tractable checks; actual-prior pilot and saved-output audits are separate."
+  },
+  "data_download": {
+    "images": 5,
+    "bytes": 2872412,
+    "original_and_preprocessed_sha256_match": true
+  },
+  "protocol": {
+    "initializations": 15,
+    "trajectories": 45,
+    "updates": 6000,
+    "sensor_banks_and_task_order_match_original": true
+  },
+  "prior_setup": {
+    "pinned_source_download_and_hash_verified": true,
+    "checkpoint_hash_verified_using_existing_local_checkpoint": true,
+    "new_checkpoint_download_tested": false
+  },
+  "ads_reference_download_verified": true,
+  "offline_report_replay": {
+    "mse_checks": 12,
+    "max_mse_replay_error": 0.0,
+    "input_checks": 6,
+    "asset_pixel_roundtrips": 17,
+    "assets": 17,
+    "generation_progress": {
+      "initializations": 1,
+      "expected_initializations": 15,
+      "trajectories": 0,
+      "expected_trajectories": 45,
+      "updates": 3,
+      "expected_updates": 6000
+    }
+  },
+  "gpu_inference_rerun": false,
+  "limitations": [
+    "Validation used the existing Python scientific environment, not a freshly installed CUDA environment.",
+    "No GPU was available on the packaging node; no new CUDA build or actual-prior inference was run.",
+    "Report replay used saved original candidates at initialization and first update for one image/budget."
+  ]
+}

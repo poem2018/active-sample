@@ -1,0 +1,22 @@
+{
+  "scope": "Portable packaging of the completed CelebA128 experiments. No algorithm changes to the listed files. Data preparation and job launch are new portable wrappers. Runtime protocols are generated in the clone, not inherited from an existing run.",
+  "unchanged_files": {
+    "experiments/common.py": "5b4df9a86ad850947c02aa81a5c4d226d046234fd5fd51823dee38c816394685",
+    "experiments/official_face_prior.py": "2b0dc244c6f77a867b4bb2a376d0551552eaef277a17915119ff66c86c42c8ce",
+    "experiments/official_face_reuse.py": "f4deedd4f8ba7caf29c96814664cf11689a8554ebe5376d5fe597f145829ccca",
+    "experiments/sequential_flowdps.py": "1a765925a7eecc89ee5d57f25cc4c8edad642d070fbc6de6e6e365099e3c230f",
+    "experiments/flowdps_pixel.py": "2ce8b96daa65ac4426263a386334be3fae4f84cb84077eb12dd126c21e205537",
+    "experiments/active_blocks.py": "626cfbaea901f08d7d0c7a687283c78264d448df14e3decfa836ff6940213064",
+    "experiments/adaptive_candidate_weights.py": "f35613fae7f2417d0f6e6ebfe1f78f78c15e11bf7ed6a5e4e4668ffff1dd0784",
+    "experiments/ads_celeba128.py": "a568762e19b8f0dde43cac8c384513e825c11a0e8b2f34fda1befe717642076c",
+    "experiments/ads128_random_baseline.py": "d130478c10c994a958e6340b72230cec6d8085f58b18e1461fa2849be0753544",
+    "experiments/ads250_rf.py": "6719ad25a1715f4fa03b779e836bebcad823f7585668f8565905ee96b884cec5",
+    "experiments/ads_celeba128_report.py": "a73c6f00fc7e7473f97afefb5341693874c95203799e8a96ae550bed9319d04a",
+    "experiments/ads_celeba128_viewer.html": "2250fce063771e8f53baa703ade94bb245cb7972937a0f6c3945aa57f7aab435",
+    "experiments/ads250_report.py": "cea59e24a221d0456c1a8b9d9789dee90878144fd2fd2399818143496323bab6",
+    "experiments/ads250_viewer.html": "369b0d797fdc093f6b78574fc80bb366bfc7e53d0b595d0758f081b19b109178",
+    "experiments/audit_ads_celeba128.py": "06d3c95e477b6f08c2e568835c4d983eb3c8ad37011af9cb7d372679c2311df9",
+    "experiments/audit_ads128_random_baseline.py": "42f98c456f7eec5bead3f989aa37c4de0b0bf6b774f6947ef225c365d3b01f31",
+    "experiments/fetch_official_face_prior.py": "d3803d4cadda0894dbc47def5c7f25467845e856ef23980660af38aa43a722d0"
+  }
+}
