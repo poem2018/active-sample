@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from experiments.active_blocks import block_grid, select_block, guidance_inputs, pixel_ridge
+from experiments.active_blocks import block_grid, select_block
 
 
 def test_grid_is_exact_partition_and_selects_maximum_disagreement():
@@ -34,24 +34,3 @@ def test_selector_uses_unclipped_images_and_excludes_all_acquired_blocks():
     assert select_block(x, [.5, .5], [False]*4)[0] == 0
     assert select_block(x, [.5, .5], [True, False, False, False])[0] == 3
     with pytest.raises(ValueError): select_block(x, [.5, .5], [True]*4)
-
-
-def test_guidance_visibility_matches_user_design_and_retains_old_identity():
-    ids = np.arange(12).reshape(3, 4); y = np.arange(12.).reshape(3, 4); old = object()
-    for method in ('SEQ_UNIFORM', 'SEQ_WEIGHTED'):
-        ii, yy, oo = guidance_inputs(method, ids, y, old)
-        np.testing.assert_array_equal(ii, ids[-1:]); np.testing.assert_array_equal(yy, y[-1:])
-        assert oo is old
-        # Historical sensor values cannot influence the new-only guidance.
-        altered = y.copy(); altered[:-1] += 10000
-        np.testing.assert_array_equal(guidance_inputs(method, ids, altered, old)[1], yy)
-    ii, yy, oo = guidance_inputs('SCRATCH', ids, y, old)
-    assert ii is ids and yy is y and oo is None
-
-
-def test_ridge_agrees_with_independent_dense_normal_equations():
-    ids = np.array([0, 3, 6]); y = np.array([.2, -.8, 1.1]); sigma = .23
-    A = np.eye(9)[ids]
-    expected = np.linalg.solve(A.T @ A / sigma**2 + np.eye(9), A.T @ y / sigma**2)
-    result = pixel_ridge(ids, y, shape=(1, 3, 3), sigma=sigma)
-    np.testing.assert_allclose(result.ravel(), expected, rtol=1e-14, atol=1e-14)

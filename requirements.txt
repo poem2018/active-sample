@@ -1,4 +1,4 @@
-# Install a matching CUDA-enabled torch/torchvision pair separately (README).
+# Install CUDA-enabled torch separately (README); torchvision is not required.
 numpy==2.2.3
 Pillow==11.1.0
 scipy>=1.13,<2

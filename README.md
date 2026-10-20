@@ -44,13 +44,13 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 # Example stable installation for a compatible CUDA 12.6 machine:
-python -m pip install torch==2.7.0 torchvision==0.22.0 \
+python -m pip install torch==2.7.0 \
   --index-url https://download.pytorch.org/whl/cu126
 python -m pip install -r requirements.txt
-python -c "import torch, torchvision; print(torch.__version__); print(torch.cuda.is_available())"
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
 ```
 
-The stable install example follows the [official PyTorch version instructions](https://pytorch.org/get-started/previous-versions/#v270); choose a matching torch/torchvision build for your hardware/toolkit if needed. Use PyTorch **2.6 or newer**: checkpoint loading uses `weights_only=True`, `mmap=True`, and an explicit safe-global mapping. The original runs used Python 3.12, PyTorch `2.7.0.dev20250224+cu126`, torchvision `0.22.0.dev20250224`, NumPy `2.2.3`, Pillow `11.1.0`, and NVIDIA GH200. Other PyTorch/CUDA/GPU combinations, including the stable install example, are not claimed to be bitwise identical or fully validated. See [reproducibility notes](docs/reproducibility.md).
+The stable install example follows the [official PyTorch version instructions](https://pytorch.org/get-started/previous-versions/#v270); choose a torch build for your hardware/toolkit if needed. Use PyTorch **2.6 or newer**: checkpoint loading uses `weights_only=True`, `mmap=True`, and an explicit safe-global mapping. The original runs used Python 3.12, PyTorch `2.7.0.dev20250224+cu126`, NumPy `2.2.3`, Pillow `11.1.0`, and NVIDIA GH200. **torchvision is not required** by this release. Other PyTorch/CUDA/GPU combinations, including the stable install example, are not claimed to be bitwise identical or fully validated. See [reproducibility notes](docs/reproducibility.md).
 
 Run all commands from this checkout's root. No editable/package install is required.
 
@@ -89,7 +89,7 @@ python -m active_sample prepare
 python -m active_sample tasks
 ```
 
-Tests cover pooling-adjoint gradients, clean-image correction, exact no-old equivalence to the measurement-only sampler, ESS tempering of the whole score, acquisition, and unchanged algorithm source hashes. `prepare` freezes the protocol, initial layouts, paired seeds and sensor banks under `runs/celeba128_ads_blocks_v1/`. Repeating it verifies the existing protocol rather than overwriting it.
+Tests cover pooling-adjoint gradients, clean-image correction, exact no-old equivalence to the measurement-only sampler, ESS tempering of the whole score, acquisition, and source provenance (including retained-function equivalence after dead-code cleanup). `prepare` freezes the protocol, initial layouts, paired seeds and sensor banks under `runs/celeba128_ads_blocks_v1/`. Repeating it verifies the existing protocol rather than overwriting it.
 
 ## 4. Start with one image and one update
 
@@ -195,4 +195,4 @@ The five-image results support the complete old-candidate-guided active pipeline
 | `configs/` | Fixed roster, geometry/settings, source provenance |
 | `tests/` | CPU algorithm and packaging checks |
 
-Some unchanged helper modules also contain functions from earlier studies; they are not used by the current CLI. In particular, the old new-only `guidance_inputs` helper and R25 helper are **not called** by this experiment. The current update loop passes all acquired measurements directly to `sequential_flowdps.sample`.
+Unused MNIST, R25, new-only-guidance and pixel-ridge helpers have been removed. The active sampler, acquisition, weighting, evaluation, baselines and independent audits are preserved. The current update loop passes all acquired measurements directly to `sequential_flowdps.sample`. See [cleanup provenance](docs/reproducibility.md#dead-code-cleanup) before resuming a run initialized with the earlier release.

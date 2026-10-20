@@ -1,12 +1,9 @@
 {
-  "scope": "Portable packaging of the completed CelebA128 experiments. No algorithm changes to the listed files. Data preparation and job launch are new portable wrappers. Runtime protocols are generated in the clone, not inherited from an existing run.",
+  "scope": "Current experiment algorithms retained. Three helper modules were cleaned by deleting only unused legacy definitions and imports; unchanged files remain byte-identical to the original release. Runtime protocol source verification remains strict.",
   "unchanged_files": {
-    "experiments/common.py": "5b4df9a86ad850947c02aa81a5c4d226d046234fd5fd51823dee38c816394685",
     "experiments/official_face_prior.py": "2b0dc244c6f77a867b4bb2a376d0551552eaef277a17915119ff66c86c42c8ce",
-    "experiments/official_face_reuse.py": "f4deedd4f8ba7caf29c96814664cf11689a8554ebe5376d5fe597f145829ccca",
     "experiments/sequential_flowdps.py": "1a765925a7eecc89ee5d57f25cc4c8edad642d070fbc6de6e6e365099e3c230f",
     "experiments/flowdps_pixel.py": "2ce8b96daa65ac4426263a386334be3fae4f84cb84077eb12dd126c21e205537",
-    "experiments/active_blocks.py": "626cfbaea901f08d7d0c7a687283c78264d448df14e3decfa836ff6940213064",
     "experiments/adaptive_candidate_weights.py": "f35613fae7f2417d0f6e6ebfe1f78f78c15e11bf7ed6a5e4e4668ffff1dd0784",
     "experiments/ads_celeba128.py": "a568762e19b8f0dde43cac8c384513e825c11a0e8b2f34fda1befe717642076c",
     "experiments/ads128_random_baseline.py": "d130478c10c994a958e6340b72230cec6d8085f58b18e1461fa2849be0753544",
@@ -18,5 +15,57 @@
     "experiments/audit_ads_celeba128.py": "06d3c95e477b6f08c2e568835c4d983eb3c8ad37011af9cb7d372679c2311df9",
     "experiments/audit_ads128_random_baseline.py": "42f98c456f7eec5bead3f989aa37c4de0b0bf6b774f6947ef225c365d3b01f31",
     "experiments/fetch_official_face_prior.py": "d3803d4cadda0894dbc47def5c7f25467845e856ef23980660af38aa43a722d0"
+  },
+  "cleanup_base_commit": "d8e33837ec015879a72ba0755e79b2ce3d8875ef",
+  "cleaned_files": {
+    "experiments/common.py": {
+      "original_sha256": "5b4df9a86ad850947c02aa81a5c4d226d046234fd5fd51823dee38c816394685",
+      "sha256": "c4f64938aebc9554e131e015752c17dfc11c0f954381984a22919c018091a08f",
+      "removed_definitions": [
+        "seed_all",
+        "load_data",
+        "preprocess",
+        "fixed_history",
+        "quadratic_terms",
+        "sample_guided",
+        "recursive_weights",
+        "recursive_log_weights",
+        "evaluate"
+      ],
+      "retained_definition_ast_sha256": {
+        "sha256": "ad7738e87ac66d7dda231dede2359c4f937b07dfbc32cc76a5c317ac1c592a67",
+        "write_json": "3d855157c92d045019d499295caf963edbd0d904514c45af536081605f14bf37",
+        "sync": "50a7a1f8465d5c545adb3aaa50170905c19adc4d4747723e248822f73a54445e"
+      }
+    },
+    "experiments/official_face_reuse.py": {
+      "original_sha256": "f4deedd4f8ba7caf29c96814664cf11689a8554ebe5376d5fe597f145829ccca",
+      "sha256": "5316aca0afab4d67d4c1fdb28b1dce0d5e888eac68f7343c03296d05c48ad4b2",
+      "removed_definitions": [
+        "METHODS",
+        "integrate",
+        "update",
+        "ObservationFlow.step"
+      ],
+      "retained_definition_ast_sha256": {
+        "downsample": "dadea610e47323d0950cc5d6b730f0c222fe10f0e60bceaab2cd3cc5b326a847",
+        "lift": "38a827e4b9f017f4efa6fb8ccb080be9a81f82353bc72d0bc296061299ec1654",
+        "ObservationFlow.__init__": "4315ab0a214fb57f2222f44caf10f667c4778622d8e4f47cdda112270c4b4121",
+        "ObservationFlow.gradient": "4325b6b600a83cb7d990f8d3c03dcc3b01cceb1853d990d6014726f7dd13bca9"
+      }
+    },
+    "experiments/active_blocks.py": {
+      "original_sha256": "626cfbaea901f08d7d0c7a687283c78264d448df14e3decfa836ff6940213064",
+      "sha256": "66c9c5459db4d66309528dd17d2138608abf2924df166083c571832601ffba0f",
+      "removed_definitions": [
+        "METHODS",
+        "guidance_inputs",
+        "pixel_ridge"
+      ],
+      "retained_definition_ast_sha256": {
+        "block_grid": "b7deec8d612cc6cc082262f1ccbb971c6ff8602823d4e4552f568ae37e4e5ed2",
+        "select_block": "0f4d4f0e407c02a6a78649da9a05c57c356be9abd86df9bbcba9802c31bd0a81"
+      }
+    }
   }
 }

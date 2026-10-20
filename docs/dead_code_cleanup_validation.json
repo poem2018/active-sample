@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "reference_commit": "d8e33837ec015879a72ba0755e79b2ce3d8875ef",
+  "all_experiment_modules_import_with_torchvision_blocked": true,
+  "retained_definition_ast_equal_count": 9,
+  "unchanged_original_implementation_files": 14,
+  "final_reconstruction_views_replayed": 85,
+  "metrics_per_view": [
+    "reconstruction_mse",
+    "psnr",
+    "ssim",
+    "unobserved_mse",
+    "observed_mean_rmse",
+    "initial_history_mean_rmse",
+    "pairwise_diversity_rmse",
+    "weighted_candidate_variance"
+  ],
+  "maximum_absolute_errors": {
+    "reconstruction_mse": 0.0,
+    "psnr": 0.0,
+    "ssim": 0.0,
+    "unobserved_mse": 0.0,
+    "observed_mean_rmse": 0.0,
+    "initial_history_mean_rmse": 0.0,
+    "pairwise_diversity_rmse": 0.0,
+    "weighted_candidate_variance": 0.0
+  },
+  "preflight": {
+    "status": "passed",
+    "measurement_plus_proximity_gradient_max_error": 0.0,
+    "measurement_only_original_sampler_max_error": 0.0,
+    "rng_states_equal": true,
+    "mse_replay_error": 0.0,
+    "geometry_unique": true,
+    "whole_score_temperature_validated": true,
+    "acquisition_variance_validated": true,
+    "old_50_study_still_paused": false,
+    "note": "CPU tractable checks; actual-prior pilot and saved-output audits are separate."
+  },
+  "new_gpu_generation": false,
+  "scope": "Read-only evaluation of original saved candidates for every main-report endpoint: 75 U/UW/WU/WW/SCRATCH views across three budgets plus 5 Random and 5 ADS-RF endpoints. No original source/protocol/output rewritten.",
+  "cpu_tests": {
+    "passed": 33,
+    "torchvision_imports_blocked": true,
+    "obsolete_tests_removed": 2,
+    "provenance_test_added": 1
+  }
+}

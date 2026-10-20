@@ -1,8 +1,7 @@
+import ast
 import hashlib
 import json
 from pathlib import Path
-
-import numpy as np
 
 from active_sample.__main__ import select_tasks
 from experiments.ads_celeba128 import spatial_order, seeds_for
@@ -14,6 +13,24 @@ def test_frozen_algorithm_files_match_original_experiment():
     record = json.loads((ROOT / 'configs/release_provenance.json').read_text())
     for name, expected in record['unchanged_files'].items():
         assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected, name
+
+
+def test_cleaned_files_preserve_recorded_active_definitions():
+    record = json.loads((ROOT / 'configs/release_provenance.json').read_text())
+    for name, change in record['cleaned_files'].items():
+        source = (ROOT / name).read_bytes()
+        assert hashlib.sha256(source).hexdigest() == change['sha256'], name
+        tree = ast.parse(source)
+        definitions = {}
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.ClassDef)):
+                definitions[node.name] = node
+            if isinstance(node, ast.ClassDef):
+                definitions.update({node.name + '.' + n.name: n for n in node.body
+                                    if isinstance(n, ast.FunctionDef)})
+        for symbol, expected in change['retained_definition_ast_sha256'].items():
+            actual = ast.dump(definitions[symbol], include_attributes=False).encode()
+            assert hashlib.sha256(actual).hexdigest() == expected, (name, symbol)
 
 
 def test_initial_layouts_match_saved_protocol():

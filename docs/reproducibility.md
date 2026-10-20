@@ -2,11 +2,19 @@
 
 ## What is preserved
 
-`configs/release_provenance.json` records SHA256 values for the original experiment implementation, sampler, prior adapter, weights, metrics, audit and report modules. Those files are copied unchanged and checked by the test suite. The original results and frozen protocols in the research workspace are not modified by this release.
+`configs/release_provenance.json` separates byte-identical original files (`unchanged_files`) from three helper modules with dead code removed (`cleaned_files`). For the cleaned files it preserves the original SHA256, records the new SHA256, and records syntax-tree hashes of the retained functions derived from the original release. Both groups are checked by the test suite. The sampler, active loops, prior loader, weighting, metrics, baselines, audits and report modules remain byte-identical to the original release. Original results and frozen protocols in the research workspace are not modified.
+
+## Dead-code cleanup
+
+The cleanup is based on commit `d8e33837ec015879a72ba0755e79b2ce3d8875ef`, which remains in Git history. It removes only unused MNIST helpers from `common.py`, old R25/integration helpers from `official_face_reuse.py`, and new-only/ridge helpers from `active_blocks.py`, plus their unused imports and two obsolete tests. The nine retained functions/methods in those modules have exactly the same syntax trees as before. `lift` and the measurement gradient remain; independent audit computations are not consolidated into the main algorithms. Removing the unused MNIST import also removes the torchvision requirement.
+
+File hashes change even when only dead code is removed. **For an already initialized run, keep using the exact commit recorded by its protocol.** Use a separate checkout for this cleaned release and prepare a new run there. Do not overwrite old protocol hashes or disable resume checks. New runs record the cleaned source hashes automatically; this cleanup does not itself establish identical results across different CUDA/PyTorch environments.
 
 New packaging consists of a small CLI, a generic Slurm launcher, dependency instructions, and fixed-roster data preparation. The original data preparation scanned historical pilot directories to choose unused images. That selection is already complete: the portable helper replays exactly the five recorded filenames and verifies both JPEG and task-array hashes. It never repeats selection against a different filesystem.
 
 The reference settings are in `configs/experiment_reference.json`. Each clone generates its own runtime `runs/celeba128_ads_blocks_v1/protocol.json` with hashes of its actual source files. That runtime protocol therefore differs from the original in packaging/provenance fields, while the candidate generation, geometry, sensor seeds, weighting, and evaluation definitions are preserved. Do not copy an old run's protocol into a changed checkout and bypass its hash checks.
+
+Validation of this cleanup: **33 tests passed with torchvision imports blocked**, all experiment modules imported under that restriction, and CPU preflight passed. Re-evaluating all **85 final reconstruction views** from the saved report candidates (all budgets and methods, including Random and ADS-RF) reproduced MSE, PSNR, SSIM and the other checked metrics with zero difference. This is saved-candidate replay, not a new GPU generation run. See [the cleanup validation record](dead_code_cleanup_validation.json); [release_validation.json](release_validation.json) remains the historical validation record for the initial release.
 
 ## Prior and references
 
